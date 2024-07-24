@@ -68,6 +68,7 @@ dependencies:
 
   # for screen size management - responsive
   flutter_screenutil: ^5.9.3
+  build_runner: ^2.4.11
 
 
 
