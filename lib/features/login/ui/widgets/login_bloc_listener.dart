@@ -46,7 +46,7 @@ class LoginBlocListener extends StatelessWidget {
       context: context,
       builder: (context) => AlertDialog(
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(12),
+          borderRadius: BorderRadius.circular(16),
         ),
         icon: const Icon(
           Icons.error,
@@ -56,7 +56,6 @@ class LoginBlocListener extends StatelessWidget {
         title: const Text('Error'),
         content: Text(
           error,
-          textAlign: TextAlign.center,
           style: TextStyles.font15DarkBlueMedium,
         ),
         actions: [
@@ -64,6 +63,13 @@ class LoginBlocListener extends StatelessWidget {
             onPressed: () {
               context.pop();
             },
+            style: TextButton.styleFrom(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(12),
+              ),
+              shadowColor: Colors.black.withOpacity(0.25),
+              backgroundColor: ColorsManager.grey.withOpacity(0.1),
+            ),
             child: Text(
               'Got it',
               style: TextStyles.font14BlueSemiBold,

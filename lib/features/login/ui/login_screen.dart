@@ -1,7 +1,6 @@
 import 'package:appointment/core/helpers/spacing.dart';
 import 'package:appointment/core/theming/styles.dart';
 import 'package:appointment/core/widgets/app_text_button.dart';
-import 'package:appointment/features/login/data/models/login_request_body.dart';
 import 'package:appointment/features/login/logic/cubit/login_cubit.dart';
 import 'package:appointment/features/login/ui/widgets/dont_have_account_text.dart';
 import 'package:appointment/features/login/ui/widgets/email_and_password.dart';
@@ -31,7 +30,7 @@ class LoginScreen extends StatelessWidget {
                   'Welcome Back',
                   style: TextStyles.font24BlueBold,
                 ),
-                verticalSpace(8),
+                verticalSpace(16),
                 Text(
                   "We're excited to have you back, can't wait to see what you've been up to since you last logged in.",
                   style: TextStyles.font14GreyRegular,
@@ -65,12 +64,7 @@ class LoginScreen extends StatelessWidget {
 
   void validateThenDoLogin(BuildContext context) {
     if (context.read<LoginCubit>().formKey.currentState!.validate()) {
-      context.read<LoginCubit>().emitLoginState(
-            LoginRequestBody(
-              email: context.read<LoginCubit>().emailController.text,
-              password: context.read<LoginCubit>().passwordController.text,
-            ),
-          );
+      context.read<LoginCubit>().emitLoginState();
     }
   }
 }

@@ -103,4 +103,5 @@ class TextStyles {
     fontWeight: FontWeightHelper.semiBold,
     color: ColorsManager.mainBlue,
   );
+
 }
