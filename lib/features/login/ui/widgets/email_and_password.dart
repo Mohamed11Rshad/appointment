@@ -3,7 +3,6 @@ import 'package:appointment/core/helpers/spacing.dart';
 import 'package:appointment/core/theming/styles.dart';
 import 'package:appointment/core/widgets/app_text_form_field.dart';
 import 'package:appointment/features/login/logic/cubit/login_cubit.dart';
-import 'package:appointment/features/login/ui/widgets/password_validations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -18,40 +17,16 @@ class _EmailAndPasswordState extends State<EmailAndPassword> {
   late TextEditingController passwordController;
   bool isobscureText = true;
 
-  bool hasLowercase = false;
-  bool hasUppercase = false;
-  bool hasSpecialCharacters = false;
-  bool hasNumber = false;
-  bool hasMinLength = false;
-
   @override
   void initState() {
     super.initState();
     passwordController = context.read<LoginCubit>().passwordController;
-    setupPasswordControllerListener();
   }
 
   @override
   void dispose() {
     passwordController.dispose();
     super.dispose();
-  }
-
-  void setupPasswordControllerListener() {
-    passwordController.addListener(
-      () {
-        setState(
-          () {
-            hasLowercase = AppRegex.hasLowerCase(passwordController.text);
-            hasUppercase = AppRegex.hasUpperCase(passwordController.text);
-            hasSpecialCharacters =
-                AppRegex.hasSpecialCharacter(passwordController.text);
-            hasNumber = AppRegex.hasNumber(passwordController.text);
-            hasMinLength = AppRegex.hasMinLength(passwordController.text);
-          },
-        );
-      },
-    );
   }
 
   @override
@@ -101,13 +76,6 @@ class _EmailAndPasswordState extends State<EmailAndPassword> {
               'Forgot Password?',
               style: TextStyles.font13BlueRegular,
             ),
-          ),
-          PasswordValidations(
-            hasLowercase: hasLowercase,
-            hasUppercase: hasUppercase,
-            hasSpecialCharacters: hasSpecialCharacters,
-            hasNumber: hasNumber,
-            hasMinLength: hasMinLength,
           ),
         ],
       ),
