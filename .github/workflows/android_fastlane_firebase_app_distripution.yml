@@ -23,13 +23,6 @@ jobs:
       with:
         channel: stable
 
-    - name: Setup Ruby
-      uses: ruby/setup-ruby@v1
-      with:
-        ruby-version: "3.3.4"
-        bundler-cache: true
-        working-directory: android
-
     - name: Add Linux Platform to Bundler
       run: bundle lock --add-platform x86_64-linux
       working-directory: android
@@ -37,6 +30,13 @@ jobs:
     - name: Install Dependencies
       run: bundle install --jobs 4
       working-directory: android
+    
+    - name: Setup Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: "3.3.4"
+        bundler-cache: true
+        working-directory: android
         
     - name: Build and Distribute App
       env:
