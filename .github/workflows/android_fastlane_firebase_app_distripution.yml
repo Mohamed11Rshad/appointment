@@ -23,30 +23,12 @@ jobs:
       with:
         channel: stable
 
-    - name: Install Ruby
-      run: sudo apt-get update && sudo apt-get install -y ruby-full
-
-    - name: Install Bundler
-      run: gem install bundler --install-dir /home/runner/.local/bin
-      env:
-        GEM_HOME: /home/runner/.local
-        PATH: /home/runner/.local/bin:${PATH}
-      working-directory: android
-
-    - name: Add Linux Platform to Bundler
-      run: |
-        bundle lock --add-platform x86_64-linux
-      working-directory: android
-
     - name: Setup Ruby
       uses: ruby/setup-ruby@v1
       with:
-        ruby-version: "3.3.4"
+        ruby-version: "3.2.3"
         bundler-cache: true
-
-    - name: Install Dependencies
-      run: bundle install --jobs 4
-      working-directory: android
+        working-directory: android
         
     - name: Build and Distribute App
       env:
@@ -54,3 +36,4 @@ jobs:
       run: |
         bundle exec fastlane android firebase_distribution
       working-directory: android
+
