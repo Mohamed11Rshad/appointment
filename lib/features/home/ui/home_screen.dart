@@ -1,8 +1,12 @@
 import 'package:appointment/core/helpers/spacing.dart';
+import 'package:appointment/features/home/ui/widgets/doctor_speciality_list.dart';
 import 'package:appointment/features/home/ui/widgets/doctors_blue_container.dart';
 import 'package:appointment/features/home/ui/widgets/home_top_bar.dart';
+import 'package:appointment/features/home/ui/widgets/recommended_doctors_list.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import 'widgets/doctor_speciality_header.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -21,6 +25,12 @@ class HomeScreen extends StatelessWidget {
               const HomeTopBar(),
               verticalSpace(8),
               const DoctorsBlueContainer(),
+              verticalSpace(8),
+              const HomeSectionHeader(title: "Doctor Speciality"),
+              verticalSpace(8),
+              const DoctorSpecialityList(),
+              verticalSpace(16),
+              const DoctorsList(),
             ],
           ),
         ),
