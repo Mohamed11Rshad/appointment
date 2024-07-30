@@ -1,6 +1,6 @@
 import 'package:appointment/core/di/dependency_injection.dart';
 import 'package:appointment/core/routing/routes.dart';
-import 'package:appointment/features/home/home_screen.dart';
+import 'package:appointment/features/home/ui/home_screen.dart';
 import 'package:appointment/features/login/logic/cubit/login_cubit.dart';
 import 'package:appointment/features/on_boarding/on_boarding_screen.dart';
 import 'package:appointment/features/login/ui/login_screen.dart';
