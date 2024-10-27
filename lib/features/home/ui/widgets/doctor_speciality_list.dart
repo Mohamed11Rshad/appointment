@@ -1,11 +1,12 @@
-import 'package:appointment/core/helpers/spacing.dart';
-import 'package:appointment/core/theming/colors.dart';
-import 'package:appointment/core/theming/styles.dart';
+import 'package:appointment/features/home/data/models/specializations_response_model.dart';
+import 'package:appointment/features/home/ui/widgets/doctor_speciality_list_view_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class DoctorSpecialityList extends StatelessWidget {
-  const DoctorSpecialityList({super.key});
+  final List<SpecializationsData?> specializationsDataList;
+  const DoctorSpecialityList(
+      {super.key, required this.specializationsDataList});
 
   @override
   Widget build(BuildContext context) {
@@ -13,28 +14,11 @@ class DoctorSpecialityList extends StatelessWidget {
       height: 100.h,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
-        itemCount: 8,
+        itemCount: specializationsDataList.length,
         itemBuilder: (context, index) {
-          return Padding(
-            padding: EdgeInsetsDirectional.only(start: index == 0 ? 4.w : 28.w),
-            child: Column(
-              children: [
-                CircleAvatar(
-                  radius: 30.r,
-                  backgroundColor: ColorsManager.lightBlue,
-                  child: Image.asset(
-                    "assets/images/home_general_speciality.png",
-                    width: 28.w,
-                    height: 28.h,
-                  ),
-                ),
-                verticalSpace(12),
-                Text(
-                  "General",
-                  style: TextStyles.font12DarkBlueRegular,
-                ),
-              ],
-            ),
+          return DoctorSpecialityListViewItem(
+            index: index,
+            specializationsData: specializationsDataList[index],
           );
         },
       ),
