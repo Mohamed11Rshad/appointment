@@ -50,7 +50,7 @@ class DoctorsListItem extends StatelessWidget {
                 ),
                 verticalSpace(5),
                 Text(
-                  doctor?.email ?? 'Email',
+                  doctor?.email ?? 'email',
                   style: TextStyles.font12GreyMedium,
                 ),
               ],
