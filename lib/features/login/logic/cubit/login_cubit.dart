@@ -3,7 +3,6 @@ import 'package:appointment/core/helpers/shared_pref_helper.dart';
 import 'package:appointment/core/networking/dio_factory.dart';
 import 'package:appointment/features/login/data/models/login_request_body.dart';
 import 'package:appointment/features/login/data/repos/login_repo.dart';
-import 'package:dio/dio.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'login_state.dart';

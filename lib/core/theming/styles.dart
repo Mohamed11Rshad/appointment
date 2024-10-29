@@ -1,4 +1,3 @@
-import 'dart:math';
 
 import 'package:appointment/core/theming/colors.dart';
 import 'package:appointment/core/theming/font_weight_helper.dart';
@@ -153,5 +152,12 @@ class TextStyles {
     fontSize: 12.sp,
     fontWeight: FontWeightHelper.medium,
     color: ColorsManager.grey,
+  );
+
+  // font14DarkBlueBold
+  static TextStyle font14DarkBlueBold = TextStyle(
+    fontSize: 14.sp,
+    fontWeight: FontWeightHelper.bold,
+    color: ColorsManager.darkBlue,
   );
 }

@@ -1,0 +1,64 @@
+import 'package:appointment/core/helpers/spacing.dart';
+import 'package:appointment/core/theming/colors.dart';
+import 'package:appointment/core/theming/styles.dart';
+import 'package:appointment/features/home/data/models/specializations_response_model.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+class SpecialityListViewItem extends StatelessWidget {
+  final int index;
+  final int selectedIndex;
+  final SpecializationsData? specializationsData;
+  const SpecialityListViewItem({
+    super.key,
+    required this.index,
+    this.specializationsData,
+    required this.selectedIndex,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: EdgeInsetsDirectional.only(start: index == 0 ? 4.w : 28.w),
+      child: Column(
+        children: [
+          index == selectedIndex
+              ? Container(
+                  decoration: BoxDecoration(
+                    border: Border.all(
+                      color: ColorsManager.darkBlue,
+                      width: 1.w,
+                    ),
+                    shape: BoxShape.circle,
+                  ),
+                  child: CircleAvatar(
+                    radius: 30.r,
+                    backgroundColor: ColorsManager.lightBlue,
+                    child: Image.asset(
+                      "assets/images/home_general_speciality.png",
+                      width: 30.w,
+                      height: 30.h,
+                    ),
+                  ),
+                )
+              : CircleAvatar(
+                  radius: 30.r,
+                  backgroundColor: ColorsManager.lightBlue,
+                  child: Image.asset(
+                    "assets/images/home_general_speciality.png",
+                    width: 28.w,
+                    height: 28.h,
+                  ),
+                ),
+          verticalSpace(12),
+          Text(
+            specializationsData?.name ?? "Specialization",
+            style: index == selectedIndex
+                ? TextStyles.font14DarkBlueBold
+                : TextStyles.font12DarkBlueRegular,
+          ),
+        ],
+      ),
+    );
+  }
+}

@@ -43,6 +43,7 @@ class _EmailAndPasswordState extends State<EmailAndPassword> {
                   !AppRegex.isEmailValid(value)) {
                 return 'Please enter a valid email';
               }
+              return null;
             },
             controller: context.read<LoginCubit>().emailController,
           ),
@@ -55,6 +56,7 @@ class _EmailAndPasswordState extends State<EmailAndPassword> {
                   !AppRegex.isPasswordValid(value)) {
                 return 'Please enter a valid password';
               }
+              return null;
             },
             hintText: "Password",
             isobscureText: isobscureText,

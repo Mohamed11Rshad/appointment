@@ -1,5 +1,5 @@
 import 'package:appointment/features/home/data/models/specializations_response_model.dart';
-import 'package:appointment/features/home/ui/widgets/doctors_list_item.dart';
+import 'package:appointment/features/home/ui/widgets/doctors_list/doctors_list_item.dart';
 import 'package:flutter/material.dart';
 
 class DoctorsList extends StatelessWidget {

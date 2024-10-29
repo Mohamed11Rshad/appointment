@@ -31,7 +31,7 @@ class DoctorsListItem extends StatelessWidget {
                 fit: BoxFit.cover,
               ),
             ),
-            errorWidget: (context, url, error) => Icon(Icons.error),
+            errorWidget: (context, url, error) => const Icon(Icons.error),
           ),
           horizontalSpace(16),
           Expanded(
