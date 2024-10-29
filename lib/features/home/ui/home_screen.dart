@@ -1,7 +1,8 @@
 import 'package:appointment/core/helpers/spacing.dart';
+import 'package:appointment/features/home/ui/widgets/doctors_list/doctors_bloc_builder.dart';
 import 'package:appointment/features/home/ui/widgets/doctors_blue_container.dart';
 import 'package:appointment/features/home/ui/widgets/home_top_bar.dart';
-import 'package:appointment/features/home/ui/widgets/specializations_and_doctors_bloc_builder.dart';
+import 'package:appointment/features/home/ui/widgets/specializations_list/specializations_bloc_builder.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -27,7 +28,9 @@ class HomeScreen extends StatelessWidget {
               verticalSpace(8),
               const HomeSectionHeader(title: "Doctor Speciality"),
               verticalSpace(8),
-              const SpecizlizationsAndDoctorsBlocBuilder(),
+              const SpecizlizationsBlocBuilder(),
+              verticalSpace(16),
+              const DoctorsBlocBuilder(),
             ],
           ),
         ),

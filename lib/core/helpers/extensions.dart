@@ -23,3 +23,7 @@ extension Navigation on BuildContext {
 extension StringExtensions on String? {
   bool isNullOrEmpty() => this == null || this == "";
 }
+
+extension ListExtensions<T> on List<T>? {
+  bool isNullOrEmpty() => this == null || this!.isEmpty;
+}
