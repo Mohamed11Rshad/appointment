@@ -1,3 +1,4 @@
+import 'package:appointment/core/helpers/constants.dart';
 import 'package:appointment/core/routing/app_router.dart';
 import 'package:appointment/core/routing/routes.dart';
 import 'package:appointment/core/theming/colors.dart';
@@ -21,7 +22,7 @@ class DocApp extends StatelessWidget {
           primaryColor: ColorsManager.mainBlue,
           scaffoldBackgroundColor: Colors.white,
         ),
-        initialRoute: Routes.homeScreen,
+        initialRoute: isLoggedInUser ? Routes.homeScreen : Routes.loginScreen,
         onGenerateRoute: appRouter.generateRoute,
       ),
     );

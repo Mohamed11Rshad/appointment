@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:appointment/core/theming/colors.dart';
 import 'package:appointment/core/theming/font_weight_helper.dart';
 import 'package:flutter/material.dart';
@@ -127,7 +129,7 @@ class TextStyles {
 
   //font12BlueRegular
   static TextStyle font12BlueRegular = TextStyle(
-    fontSize: 12.sp,
+    fontSize: 15.sp.clamp(12, 15),
     fontWeight: FontWeightHelper.regular,
     color: ColorsManager.mainBlue,
   );
