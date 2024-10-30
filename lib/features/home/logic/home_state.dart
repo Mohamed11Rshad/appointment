@@ -1,4 +1,4 @@
-import 'package:appointment/core/networking/api_error_handler.dart';
+import 'package:appointment/core/networking/api_error_model.dart';
 import 'package:appointment/features/home/data/models/specializations_response_model.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 part 'home_state.freezed.dart';
@@ -13,11 +13,10 @@ class HomeState with _$HomeState {
           {required List<SpecializationsData?>? specializationDataList}) =
       SpecializationSuccess;
   const factory HomeState.specializationError(
-      {required ErrorHandler errorHandler}) = SpecializationError;
+      {required ApiErrorModel apiErrorModel}) = SpecializationError;
 
   // Doctors
   const factory HomeState.doctorSuccess({required List<Doctor?>? doctorList}) =
       DoctorSuccess;
-  const factory HomeState.doctorError({required ErrorHandler errorHandler}) =
-      DoctorError;
+  const factory HomeState.doctorEmpty() = DoctorEmpty;
 }
