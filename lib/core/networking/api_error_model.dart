@@ -1,3 +1,4 @@
+import 'package:appointment/core/helpers/extensions.dart';
 import 'package:json_annotation/json_annotation.dart';
 part 'api_error_model.g.dart';
 
@@ -5,11 +6,24 @@ part 'api_error_model.g.dart';
 class ApiErrorModel {
   final String? message;
   final int? code;
+  @JsonKey(name: "data")
+  final Map<String, dynamic>? errors;
 
-  ApiErrorModel({required this.message, required this.code});
+  ApiErrorModel({this.message, this.code, this.errors});
 
   factory ApiErrorModel.fromJson(Map<String, dynamic> json) =>
       _$ApiErrorModelFromJson(json);
 
   Map<String, dynamic> toJson() => _$ApiErrorModelToJson(this);
+
+  String getAllErrorMessages() {
+    if (errors.isNullOrEmpty()) return message ?? 'An error occurred';
+
+    final errorMessages = errors!.entries.map((entry) {
+      final value = entry.value;
+      return "${value.join(',')}";
+    }).join('\n');
+
+    return errorMessages;
+  }
 }

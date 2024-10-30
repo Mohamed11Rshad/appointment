@@ -1,5 +1,6 @@
 import 'package:appointment/core/helpers/extensions.dart';
 import 'package:appointment/core/networking/api_error_handler.dart';
+import 'package:appointment/core/networking/api_error_model.dart';
 import 'package:appointment/features/home/data/models/specializations_response_model.dart';
 import 'package:appointment/features/home/data/repos/home_repo.dart';
 import 'package:appointment/features/home/logic/home_state.dart';
@@ -27,9 +28,9 @@ class HomeCubit extends Cubit<HomeState> {
           ),
         );
       },
-      failure: (errorHandler) {
+      failure: (apiErrorModel) {
         emit(
-          HomeState.specializationError(errorHandler: errorHandler),
+          HomeState.specializationError(apiErrorModel: apiErrorModel),
         );
       },
     );
@@ -45,10 +46,7 @@ class HomeCubit extends Cubit<HomeState> {
       );
     } else {
       emit(
-        HomeState.doctorError(
-          errorHandler:
-              ErrorHandler.handle("No doctors found for this specialization"),
-        ),
+        const HomeState.doctorEmpty(),
       );
     }
   }

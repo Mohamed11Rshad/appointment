@@ -1,4 +1,3 @@
-import 'package:appointment/core/networking/api_error_handler.dart';
 import 'package:appointment/features/home/data/models/specializations_response_model.dart';
 import 'package:appointment/features/home/logic/home_cubit.dart';
 import 'package:appointment/features/home/logic/home_state.dart';
@@ -13,14 +12,14 @@ class DoctorsBlocBuilder extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<HomeCubit, HomeState>(
       buildWhen: (previous, current) =>
-          current is DoctorSuccess || current is DoctorError,
+          current is DoctorSuccess || current is DoctorEmpty,
       builder: (context, state) {
         return state.maybeWhen(
           doctorSuccess: (doctorsList) {
             return setupSuccess(doctorsList);
           },
-          doctorError: (errorHandler) {
-            return setupError(errorHandler);
+          doctorEmpty: () {
+            return setupEmpty();
           },
           orElse: () => const SizedBox.shrink(),
         );
@@ -32,7 +31,11 @@ class DoctorsBlocBuilder extends StatelessWidget {
     return DoctorsList(doctorsList: doctorsList);
   }
 
-  Widget setupError(ErrorHandler errorHandler) {
-    return const SizedBox.shrink();
+  Widget setupEmpty() {
+    return const Center(
+      child: Text(
+        'No doctors found',
+      ),
+    );
   }
 }
